@@ -1,0 +1,6 @@
+{
+  "name": "Distrito Laguna San Vicente",
+  "description": "Plataforma editorial interactiva sobre la construcción y proyección de la imagen territorial de Distrito Laguna San Vicente: identidad, anatomía simbólica del isologo, galerías fotográficas y marco teórico.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
