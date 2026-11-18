@@ -38,7 +38,7 @@ export function NatureAndHistorySection() {
         >
           <div className="lg:col-span-6">
             <p className="text-sm font-bold text-[#2E6B30]">
-              03 · Naturaleza y Cuidado Ambiental
+              04 · Naturaleza y Cuidado Ambiental
             </p>
             <h2
               className="mt-2 font-display text-3xl font-bold leading-tight text-[#102A3A] sm:text-4xl"
@@ -132,7 +132,7 @@ export function NatureAndHistorySection() {
           <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <p className="text-sm font-bold text-[#7C5A05]">
-                04 · Historia e Identidad de San Vicente
+                05 · Historia e Identidad de San Vicente
               </p>
               <h2
                 className="mt-2 font-display text-3xl font-bold leading-tight text-[#102A3A]"

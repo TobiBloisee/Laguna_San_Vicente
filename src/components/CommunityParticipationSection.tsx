@@ -77,7 +77,7 @@ export function CommunityParticipationSection() {
           className="max-w-3xl"
         >
           <p className="text-sm font-bold text-[#7C5A05]">
-            07 · Comunidad y Participación
+            08 · Comunidad y Participación
           </p>
           <h2
             className="mt-2 font-display text-3xl font-bold leading-tight text-[#102A3A] sm:text-4xl"

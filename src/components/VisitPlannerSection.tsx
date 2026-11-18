@@ -32,7 +32,7 @@ export function VisitPlannerSection() {
           {/* Left column: PDF Section F copy */}
           <div className="lg:col-span-5">
             <p className="text-sm font-bold text-[#186E9E]">
-              05 · Planificá tu visita
+              06 · Planificá tu visita
             </p>
             <h2
               className="mt-2 font-display text-3xl font-bold leading-tight text-[#102A3A] sm:text-4xl"

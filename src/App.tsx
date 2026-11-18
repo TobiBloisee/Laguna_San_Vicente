@@ -1,5 +1,6 @@
 import { MotionConfig } from 'motion/react';
 import { useState } from 'react';
+import { ActionsSection } from './components/ActionsSection';
 import { CommunityParticipationSection } from './components/CommunityParticipationSection';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
@@ -15,18 +16,22 @@ import type { SectorId, SymbolKey } from './utils/brandLogic';
 export default function App() {
   const [activeSymbol, setActiveSymbol] = useState<SymbolKey>('agua');
   const [activeSectorId, setActiveSectorId] = useState<SectorId>('norte');
+  const [projectMode, setProjectMode] = useState<'proyecto' | 'isologo'>('proyecto');
 
   return (
     <MotionConfig reducedMotion="user">
       <div className="min-h-screen flex flex-col bg-[#F7FBFE] text-[#102A3A]">
         <ScrollLagoonProgress />
-        <Navbar />
+        <Navbar onSelectObjetivos={() => setProjectMode('proyecto')} />
         <main className="flex-1">
           <HeroSection />
           <ProjectAndLogoSection
             activeSymbol={activeSymbol}
             onSelectSymbol={setActiveSymbol}
+            activeMode={projectMode}
+            onChangeMode={setProjectMode}
           />
+          <ActionsSection />
           <InteractiveSectorsMap
             activeSectorId={activeSectorId}
             onSelectSector={setActiveSectorId}

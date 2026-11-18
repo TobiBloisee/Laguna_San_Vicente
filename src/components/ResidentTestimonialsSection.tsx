@@ -72,7 +72,7 @@ export function ResidentTestimonialsSection() {
         >
           <div className="max-w-2xl">
             <p className="text-sm font-bold text-[#186E9E]">
-              06 · Voces del Distrito
+              07 · Voces del Distrito
             </p>
             <h2
               className="mt-2 font-display text-3xl font-bold leading-tight text-[#102A3A] sm:text-4xl"

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Building2, Leaf, Sun, Waves } from 'lucide-react';
 import {
@@ -12,13 +11,16 @@ import { PerchingBenteveo, SwayingCeiboCluster } from './WildBotanicalDecor';
 interface ProjectAndLogoSectionProps {
   activeSymbol: SymbolKey;
   onSelectSymbol: (symbol: SymbolKey) => void;
+  activeMode: 'proyecto' | 'isologo';
+  onChangeMode: (mode: 'proyecto' | 'isologo') => void;
 }
 
 export function ProjectAndLogoSection({
   activeSymbol,
   onSelectSymbol,
+  activeMode,
+  onChangeMode,
 }: ProjectAndLogoSectionProps) {
-  const [activeMode, setActiveMode] = useState<'proyecto' | 'isologo'>('proyecto');
 
   const selectedElement =
     LOGO_SYMBOL_ELEMENTS.find((el) => el.key === activeSymbol) ?? LOGO_SYMBOL_ELEMENTS[0];
@@ -47,7 +49,7 @@ export function ProjectAndLogoSection({
     },
     {
       icon: Sun,
-      title: 'Turismo y encuentro comunitario',
+      title: 'Fomentar el turismo y encuentro comunitario',
       detail: 'Nuevos espacios para la recreación familiar, la gastronomía y la cultura local.',
       bg: '#FEF7DF',
       iconBg: '#F2C53D',
@@ -117,7 +119,7 @@ export function ProjectAndLogoSection({
           </div>
 
           {/* Right: Interactive Dual-Tab Explorer (Visión Territorial vs Anatomía del Isologo) */}
-          <div className="lg:col-span-7">
+          <div id="objetivos" className="scroll-mt-24 lg:col-span-7">
             <div className="rounded-3xl border-2 border-[#8CBF75]/45 bg-white p-6 sm:p-8 shadow-sm">
               <div
                 role="tablist"
@@ -130,7 +132,7 @@ export function ProjectAndLogoSection({
                   whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.97 }}
                   aria-selected={activeMode === 'proyecto'}
-                  onClick={() => setActiveMode('proyecto')}
+                  onClick={() => onChangeMode('proyecto')}
                   className={`flex-1 rounded-xl px-4 py-2.5 text-xs font-bold transition-colors whitespace-nowrap shrink-0 ${
                     activeMode === 'proyecto'
                       ? 'bg-[#65A366] text-white shadow-xs'
@@ -145,7 +147,7 @@ export function ProjectAndLogoSection({
                   whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.97 }}
                   aria-selected={activeMode === 'isologo'}
-                  onClick={() => setActiveMode('isologo')}
+                  onClick={() => onChangeMode('isologo')}
                   className={`flex-1 rounded-xl px-4 py-2.5 text-xs font-bold transition-colors whitespace-nowrap shrink-0 ${
                     activeMode === 'isologo'
                       ? 'bg-[#329FD8] text-[#072130] shadow-xs'

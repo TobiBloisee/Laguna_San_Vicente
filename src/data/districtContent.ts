@@ -520,3 +520,47 @@ export const RESIDENT_TESTIMONIALS: ResidentTestimonial[] = [
   },
 ];
 
+export interface MunicipalActionItem {
+  id: 'informar' | 'escuchar' | 'comunicar' | 'concientizar';
+  title: string;
+  description: string;
+  accentHex: string;
+  surfaceHex: string;
+}
+
+export const MUNICIPAL_ACTIONS: MunicipalActionItem[] = [
+  {
+    id: 'informar',
+    title: 'Informar',
+    description:
+      'Comunicar de manera transparente las etapas del proyecto, las obras y los estudios ambientales.',
+    accentHex: '#96D5F4',
+    surfaceHex: '#E8F6FD',
+  },
+  {
+    id: 'escuchar',
+    title: 'Escuchar',
+    description:
+      'Generar espacios de diálogo y participación con vecinos y organizaciones ambientales.',
+    accentHex: '#F2C53D',
+    surfaceHex: '#FEF7DF',
+  },
+  {
+    id: 'comunicar',
+    title: 'Comunicar',
+    description:
+      'Difundir novedades, avances y actividades mediante redes sociales y canales institucionales.',
+    accentHex: '#329FD8',
+    surfaceHex: '#E3F3FC',
+  },
+  {
+    id: 'concientizar',
+    title: 'Concientizar',
+    description:
+      'Promover el cuidado del humedal y la preservación del patrimonio natural.',
+    accentHex: '#8CBF75',
+    surfaceHex: '#EDF7E9',
+  },
+];
+
+

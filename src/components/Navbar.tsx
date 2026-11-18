@@ -2,24 +2,36 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { CIRCULAR_LOGO_SRC } from '../data/districtContent';
 
-export function Navbar() {
+interface NavbarProps {
+  onSelectObjetivos?: () => void;
+}
+
+export function Navbar({ onSelectObjetivos }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
     { href: '#proyecto', label: 'El Proyecto' },
+    { href: '#objetivos', label: 'Objetivos' },
+    { href: '#acciones', label: 'Acciones' },
     { href: '#sectores', label: 'Sectores' },
     { href: '#naturaleza', label: 'Naturaleza e Historia' },
     { href: '#testimonios', label: 'Voces' },
     { href: '#participacion', label: 'Participá' },
   ];
 
+  const handleLinkClick = (href: string) => {
+    if (href === '#objetivos') {
+      onSelectObjetivos?.();
+    }
+  };
+
   return (
     <header className="pointer-events-none sticky top-0 z-40 px-4 pt-3 pb-1 sm:px-6">
-      <div className="pointer-events-auto mx-auto flex max-w-[1200px] items-center justify-between gap-6 rounded-2xl liquid-glass-bar px-5 py-2.5">
+      <div className="pointer-events-auto mx-auto flex max-w-[1200px] items-center justify-between gap-3 xl:gap-5 rounded-2xl liquid-glass-bar px-4 xl:px-5 py-2.5">
         {/* Zone 1: Circular Logo (left) + Wordmark */}
         <a
           href="#inicio"
-          className="inline-flex items-center gap-2.5 font-display text-xl font-bold tracking-tight text-[#102A3A] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#329FD8]"
+          className="inline-flex items-center gap-2.5 font-display text-lg xl:text-xl font-bold tracking-tight text-[#102A3A] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#329FD8]"
         >
           <img
             src={CIRCULAR_LOGO_SRC}
@@ -30,13 +42,14 @@ export function Navbar() {
           <span>Distrito Laguna</span>
         </a>
 
-        {/* Zone 2: 5 concise single-line nav links */}
-        <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-6">
+        {/* Zone 2: 7 single-line nav links in exact requested order */}
+        <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-3.5 xl:gap-5">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-semibold text-[#1E3A4C] hover:text-[#186E9E] hover:underline decoration-2 decoration-[#329FD8] underline-offset-4 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#329FD8]"
+              onClick={() => handleLinkClick(link.href)}
+              className="text-[13px] xl:text-sm font-semibold text-[#1E3A4C] hover:text-[#186E9E] hover:underline decoration-2 decoration-[#329FD8] underline-offset-4 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#329FD8]"
             >
               {link.label}
             </a>
@@ -44,10 +57,10 @@ export function Navbar() {
         </nav>
 
         {/* Zone 3: 1 primary action + mobile menu button */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2.5 shrink-0">
           <a
             href="#visita"
-            className="hidden sm:inline-flex items-center justify-center rounded-xl bg-[#329FD8]/90 px-4 py-2 text-xs font-bold text-[#072130] shadow-xs ring-1 ring-white/60 hover:bg-[#96D5F4] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#102A3A]"
+            className="hidden sm:inline-flex items-center justify-center rounded-xl bg-[#329FD8]/90 px-3.5 xl:px-4 py-2 text-xs font-bold text-[#072130] shadow-xs ring-1 ring-white/60 hover:bg-[#96D5F4] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#102A3A]"
           >
             Planificá tu visita
           </a>
@@ -68,12 +81,15 @@ export function Navbar() {
           aria-label="Navegación móvil"
           className="pointer-events-auto mx-auto mt-2 max-w-[1200px] rounded-2xl liquid-glass-panel px-6 py-4 lg:hidden"
         >
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2.5">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => {
+                    handleLinkClick(link.href);
+                    setMobileOpen(false);
+                  }}
                   className="block py-2 text-sm font-semibold text-[#102A3A] hover:text-[#329FD8]"
                 >
                   {link.label}

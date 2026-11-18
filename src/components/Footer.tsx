@@ -4,6 +4,8 @@ import { CIRCULAR_LOGO_SRC, GOOGLE_MAPS_LAGUNA_URL } from '../data/districtConte
 export function Footer() {
   const footerLinks = [
     { href: '#proyecto', label: 'El Proyecto', hoverClass: 'hover:text-[#96D5F4]' },
+    { href: '#objetivos', label: 'Objetivos', hoverClass: 'hover:text-[#8CBF75]' },
+    { href: '#acciones', label: 'Acciones', hoverClass: 'hover:text-[#96D5F4]' },
     { href: '#sectores', label: 'Sectores', hoverClass: 'hover:text-[#F2C53D]' },
     { href: '#naturaleza', label: 'Naturaleza e Historia', hoverClass: 'hover:text-[#8CBF75]' },
     { href: '#visita', label: 'Planificá tu visita', hoverClass: 'hover:text-[#F2C53D]' },

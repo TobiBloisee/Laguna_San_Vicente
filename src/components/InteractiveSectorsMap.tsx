@@ -33,7 +33,7 @@ export function InteractiveSectorsMap({
           className="max-w-2xl"
         >
           <p className="text-sm font-bold text-[#186E9E]">
-            02 · Planificación Territorial
+            03 · Planificación Territorial
           </p>
           <h2
             className="mt-2 font-display text-3xl font-bold leading-tight text-[#102A3A] sm:text-4xl"
